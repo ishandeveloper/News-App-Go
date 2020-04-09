@@ -34,6 +34,14 @@ type Results struct {
 	Articles     []Article `json:"articles"`
 }
 
+//Search Query Structure
+type Search struct {
+	SearchKey  string
+	NextPage   int
+	TotalPages int
+	Results    Results
+}
+
 var tpl = template.Must(template.ParseFiles("index.html"))
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
