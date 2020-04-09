@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"math"
 	"net/http"
 	"net/url"
 	"os"
@@ -102,6 +103,11 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	search.TotalPages = int(math.Ceil(float64(search.Results.TotalResults / pageSize)))
+	err = tpl.Execute(w, search)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
 }
 
 func main() {
