@@ -33,6 +33,7 @@ type Article struct {
 	Content     string    `json:"content"`
 }
 
+// Article Timestamp Formatting
 func (a *Article) FormatPublishedDate() string {
 	year, month, day := a.PublishedAt.Date()
 	return fmt.Sprintf("%v %d, %d", month, day, year)
