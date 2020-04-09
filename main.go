@@ -54,6 +54,11 @@ type Search struct {
 	Results    Results
 }
 
+// IsLastPage checker
+func (s *Search) IsLastPage() bool {
+	return s.NextPage >= s.TotalPages
+}
+
 var tpl = template.Must(template.ParseFiles("index.html"))
 var apiKey string
 
