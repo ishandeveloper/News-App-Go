@@ -11,9 +11,9 @@ import (
 	"os"
 	"strconv"
 	"time"
-)
 
-var apiKey = os.Getenv("API_KEY")
+	"github.com/joho/godotenv"
+)
 
 //Source Structure
 type Source struct {
@@ -49,6 +49,7 @@ type Search struct {
 }
 
 var tpl = template.Must(template.ParseFiles("index.html"))
+var apiKey string
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.Execute(w, nil)
@@ -114,7 +115,13 @@ func main() {
 
 	// apiKey = flag.String("apikey", "", "Newsapi.org access key")
 	// flag.Parse()
-
+	err := godotenv.Load()
+	if err != nil {
+		println("Error loading .env file")
+	}
+	apiKey = os.Getenv("API_KEY")
+	// println(apiKey)
+	// println(os.Getenv("API_KEY"))
 	if apiKey == "" {
 		log.Fatal("apiKey must be set")
 	}
