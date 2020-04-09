@@ -1,3 +1,4 @@
+https://hits.dwyl.com/ishandeveloper/News-App-Go.svg
 ### News App [Go]
 Search for thousands of news topics of your interest. A web app created in GoLang, which uses NewsAPI. 
 <br>Go ahead,  Give it a try ;)
