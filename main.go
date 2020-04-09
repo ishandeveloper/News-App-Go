@@ -68,6 +68,11 @@ func (s *Search) CurrentPage() int {
 	return s.NextPage - 1
 }
 
+//PreviousPage checker
+func (s *Search) PreviousPage() int {
+	return s.CurrentPage() - 1
+}
+
 var tpl = template.Must(template.ParseFiles("index.html"))
 var apiKey string
 
