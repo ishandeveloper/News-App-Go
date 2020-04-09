@@ -20,6 +20,12 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
+
+	//Static Files
+	fs := http.FileServer(http.Dir("assets"))
+	mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
+
+	//Server Start
 	fmt.Println("Starting Server...")
 	mux.HandleFunc("/", indexHandler)
 	http.ListenAndServe(":"+port, mux)
