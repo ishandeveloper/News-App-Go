@@ -1,1 +1,1 @@
-web: idevnews
+web: bin/idevnews
