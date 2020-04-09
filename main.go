@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
+	"strconv"
 	"time"
 )
 
@@ -67,10 +69,32 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println("Search Query is: ", searchKey)
-	fmt.Println("Results page is: ", page)
+	// fmt.Println("Results page is: ", page)
+	search := &Search{}
+	search.SearchKey = searchKey
+
+	next, err := strconv.Atoi(page)
+	if err != nil {
+		http.Error(w, "Unexpected server error", http.StatusInternalServerError)
+		return
+	}
+
+	search.NextPage = next
+	pageSize := 20
+
+	endpoint := fmt.Sprintf("https://newsapi.org/v2/everything?q=%s&pageSize=%d&page=%d&apiKey=%s&sortBy=publishedAt&language=en", url.QueryEscape(search.SearchKey), pageSize, search.NextPage, apiKey)
+
 }
 
 func main() {
+
+	// apiKey = flag.String("apikey", "", "Newsapi.org access key")
+	// flag.Parse()
+
+	if apiKey == "" {
+		log.Fatal("apiKey must be set")
+	}
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
