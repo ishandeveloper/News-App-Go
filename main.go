@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 )
@@ -13,11 +14,11 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3000"
+		port = "8080"
 	}
 
 	mux := http.NewServeMux()
-
+	fmt.Println("Starting Server...")
 	mux.HandleFunc("/", indexHandler)
 	http.ListenAndServe(":"+port, mux)
 
