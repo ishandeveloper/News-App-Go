@@ -1,4 +1,4 @@
-https://hits.dwyl.com/ishandeveloper/News-App-Go.svg
+[![HitCount](http://hits.dwyl.com/ishandeveloper/News-App-Go.svg)](http://hits.dwyl.com/ishandeveloper/News-App-Go)
 ### News App [Go]
 Search for thousands of news topics of your interest. A web app created in GoLang, which uses NewsAPI. 
 <br>Go ahead,  Give it a try ;)
