@@ -9,11 +9,13 @@ import (
 	"time"
 )
 
+//Source Structure
 type Source struct {
 	ID   interface{} `json:"id"`
 	Name string      `json:"name"`
 }
 
+// Article Structure
 type Article struct {
 	Source      Source    `json:"source"`
 	Author      string    `json:"author"`
@@ -25,6 +27,7 @@ type Article struct {
 	Content     string    `json:"content"`
 }
 
+// Results Structure
 type Results struct {
 	Status       string    `json:"status"`
 	TotalResults int       `json:"totalResults"`
