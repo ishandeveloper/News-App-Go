@@ -68,6 +68,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 //Search Requests
 func searchHandler(w http.ResponseWriter, r *http.Request) {
+
 	u, err := url.Parse(r.URL.String())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -119,6 +120,12 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	err = tpl.Execute(w, search)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
+	}
+
+	search.TotalPages = int(math.Ceil(float64(search.Results.TotalResults / pageSize)))
+
+	if ok := !search.IsLastPage(); ok {
+		search.NextPage++
 	}
 }
 
