@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
 html {
   box-sizing: border-box;
 }
@@ -9,38 +11,60 @@ html {
 }
 
 :root {
-  --light-green: #00ff00;
-  --dark-green: #003b00;
+  --light-green: #ffffff;
+  --dark-green: #4fb4df;
   --dark-grey: #777;
   --light-grey: #dadce0;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
   text-decoration: none;
   color: #333;
 }
-
+.next-page{
+    font-size: 1em!important;
+    padding:5px 20px!important;
+}
+.footer{
+    position: fixed;
+    bottom:25px;
+    right: 25px;
+    background: rgba(255,255,255,0.75);
+    border-radius: 50px;
+    padding:5px 10px;
+}
 a:hover {
   text-decoration: underline;
 }
-
+.footer a{
+    transition: all 1s;
+    font-weight: bold;
+}
+.footer a:hover{
+    font-size: 1.5em;
+    color:red;
+    text-decoration: none;
+}
 a.button {
-  border: 2px solid #004400;
-  color: var(--dark-green);
-  border-radius: 4px;
-  padding: 6px 24px;
-  font-size: 14px;
-  font-weight: 400;
+    /* background: #4fb4df; */
+    color: #4fb4df;
+    padding: 5px 10px;
+    outline: none;
+    font-size: 0.8em;
+    border: 1px solid #4fb4df;
+    border-radius: 50px;
+    animation: hue 20s infinite;
+    transition: all 1s;
 }
 
 a.button:hover {
   text-decoration: none;
-  background-color: var(--dark-green);
-  color: var(--light-green);
+  background-color: #4fb4df;
+  color:white;
 }
 
 header {
@@ -58,28 +82,42 @@ header {
 }
 
 .logo {
-  color: #002200;
+  color: #4fb4df;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition:all 1s;
 }
-
+.logo:hover{
+    font-size: 1.5em;
+    text-decoration: none;
+}
 form {
   height: calc(100% - 10px);
 }
 
 .search-input {
-  width: 500px;
+  /* width: 500px;
   height: 100%;
   border-radius: 4px;
   border-color: transparent;
-  background-color: var(--dark-green);
-  color: var(--light-green);
   font-size: 16px;
   line-height: 1.4;
-  padding-left: 5px;
+  padding-left: 5px; */
+  background: #f0f0f0;
+    /* border: 1px solid #4e73df; */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    outline: none;
+    width: 500px;
+    margin-bottom: 10px;
+    transition: width 0.5s
 }
 
 .container {
   width: 100%;
-  max-width: 720px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 80px 20px 40px;
 }
@@ -149,12 +187,16 @@ form {
   .logo {
     display: inline-block;
     margin-bottom: 10px;
+    font-size: 2em;
+    
   }
 
   form, .search-input {
     width: 100%;
   }
-
+  .result-count{
+      margin-top: 70px;
+  }
   .github-button {
     display: none;
   }
@@ -162,7 +204,9 @@ form {
   .title {
     font-size: 18px;
   }
-
+  .footer{
+    display: none;
+}
   .description {
     font-size: 14px;
   }
