@@ -89,6 +89,12 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
 }
 
