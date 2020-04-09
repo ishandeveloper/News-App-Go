@@ -5,6 +5,10 @@ Search for thousands of news topics of your interest. A web app created in GoLan
 
 <img src="https://github.com/ishandeveloper/News-App-Go/blob/master/assets/demo.gif?raw=true">
 
+### Uses
+* [News API](https://newsapi.org/)
+* [GoDotEnv](https://github.com/joho/godotenv) package
+
 ### Quick Start
 #### Download and install
 <pre>go get github.com/ishandeveloper/News-App-Go</pre>
