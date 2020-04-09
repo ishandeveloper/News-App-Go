@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
@@ -92,6 +93,11 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	err = json.NewDecoder(resp.Body).Decode(&search.Results)
+	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
