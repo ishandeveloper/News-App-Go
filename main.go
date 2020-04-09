@@ -48,6 +48,7 @@ func main() {
 
 	//Server Start
 	fmt.Println("Starting Server...")
+	mux.HandleFunc("/search", searchHandler)
 	mux.HandleFunc("/", indexHandler)
 	http.ListenAndServe(":"+port, mux)
 }
