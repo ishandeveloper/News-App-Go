@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+var apiKey = os.Getenv("API_KEY")
+
 //Source Structure
 type Source struct {
 	ID   interface{} `json:"id"`
