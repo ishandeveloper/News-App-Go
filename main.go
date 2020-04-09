@@ -59,6 +59,14 @@ func (s *Search) IsLastPage() bool {
 	return s.NextPage >= s.TotalPages
 }
 
+func (s *Search) CurrentPage() int {
+	if s.NextPage == 1 {
+		return s.NextPage
+	}
+
+	return s.NextPage - 1
+}
+
 var tpl = template.Must(template.ParseFiles("index.html"))
 var apiKey string
 
