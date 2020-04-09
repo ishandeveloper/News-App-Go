@@ -59,6 +59,7 @@ func (s *Search) IsLastPage() bool {
 	return s.NextPage >= s.TotalPages
 }
 
+//CurrentPage Checker
 func (s *Search) CurrentPage() int {
 	if s.NextPage == 1 {
 		return s.NextPage
